@@ -14,7 +14,7 @@
       </ion-spinner>
       <h5>Loading ...</h5>
     </div>
-    <div *ngIf="loading">
+    <div *ngIf="!loading">
       <ion-item>
         <ion-label>Jobs in</ion-label>
         <ion-select name="location" interface="popover" (ionChange)="changeLocation($event)" [(ngModel)]="location" placeholder="Select">
