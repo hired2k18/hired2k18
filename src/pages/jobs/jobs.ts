@@ -15,6 +15,7 @@ export class JobsPage {
   loading = true;
   location = '';
   locations: Location[];
+  public pet = 'all';
   constructor(public navCtrl: NavController, public navParams: NavParams,afDB: AngularFireDatabase) {
     //this.items = afDB.list<User>('locations').snapshotChanges();
     this.items = new Array();

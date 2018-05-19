@@ -1,4 +1,4 @@
-export interface Job {
+export interface Hire {
   title?: String;
   location?: String;
   address?: String;

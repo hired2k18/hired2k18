@@ -31,9 +31,11 @@ export class ServiceDetailsPage {
       self.users.push(obj);
       if(self.users.length == data.numChildren()) {
         self.loading = false;
+        this.loading = false;
         return;
       }
       self.loading = false;
+      this.loading = false;
     });
   }
 

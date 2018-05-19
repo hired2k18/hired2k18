@@ -1,18 +1,101 @@
-<!--
-  Generated template for the HirePage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
-
-  <ion-navbar>
-    <ion-title>hire</ion-title>
+  <ion-navbar color="primary">
+    <ion-title>Hire Them</ion-title>
   </ion-navbar>
-
 </ion-header>
 
 
 <ion-content padding>
+  <div align="center" *ngIf="loading">
+    <ion-spinner name="circles">
+    </ion-spinner>
+    <h5>Loading ...</h5>
+  </div>
+  <ion-list *ngIf="!loading">
+    <div>
+      <ion-segment [(ngModel)]="pet">
+        <ion-segment-button value="all">
+          Posted Jobs
+        </ion-segment-button>
+        <ion-segment-button value="new">
+          Add New
+        </ion-segment-button>
+      </ion-segment>
+    </div>
+    <div [ngSwitch]="pet">
+      <ion-list *ngSwitchCase="'all'">
+        <ion-card *ngFor="let job of postedJobs">
+          <ion-item>
+            <ion-avatar item-start class="splash-logo">
+            </ion-avatar>
+            <h2>{{job.data.title}}</h2>
+            <ion-item>
+              <ion-avatar item-left>
+                <ion-icon name="pin"></ion-icon>
+              </ion-avatar>
+              <h3>{{job.data.location}}</h3>
+              <p>{{job.data.address}}</p>
+            </ion-item>
+          </ion-item>
+
+          <ion-card-content>
+            <p>Type : {{job.data.type}}</p>
+            <p>Salary : {{job.data.salary}}</p>
+            <p>{{job.data.description}}</p>
+
+          </ion-card-content>
+          <ion-row>
+            <button ion-button (click)="deleteJob(job.key)" full color="danger">DELETE JOB</button>
+          </ion-row>
+        </ion-card>
+      </ion-list>
+
+      <ion-list *ngSwitchCase="'new'">
+        <form (ngSubmit)="addPost()">
+          <ion-item>
+            <ion-label floating>Job Title</ion-label>
+            <ion-input name="post" [(ngModel)]="post.title" type="text" required></ion-input>
+          </ion-item>
+
+          <ion-item>
+            <ion-label floating>Salary</ion-label>
+            <ion-input name="salary" [(ngModel)]="post.salary" type="text"></ion-input>
+          </ion-item>
+
+          <ion-item>
+            <ion-label floating>Description</ion-label>
+            <ion-input name="description" [(ngModel)]="post.description" type="text"></ion-input>
+          </ion-item>
+
+          <br>
+          <ion-item>
+            <ion-label floating>Job Type</ion-label>
+            <ion-select name="profession" interface="popover" [(ngModel)]="post.type" placeholder="Select">
+              <ion-option value="Full Time">Full Time</ion-option>
+              <ion-option value="Part Time">Part Time</ion-option>
+              <ion-option value="Internship">Internship</ion-option>
+              <ion-option value="Work From Home">Work From Home</ion-option>
+            </ion-select>
+          </ion-item>
+          <ion-item>
+            <ion-label floating>Service Location</ion-label>
+            <ion-select name="profession" interface="popover" [(ngModel)]="post.location" placeholder="Select">
+              <ion-option *ngFor="let location of locations">{{location.location}}</ion-option>
+            </ion-select>
+          </ion-item>
+
+
+          <ion-item>
+            <ion-label floating>Address</ion-label>
+            <ion-input name="address" type="text" [(ngModel)]="post.address" required></ion-input>
+          </ion-item>
+
+          <br>
+          <button ion-button type="submit" round full>Post Job</button>
+        </form>
+      </ion-list>
+    </div>
+
+  </ion-list>
 
 </ion-content>

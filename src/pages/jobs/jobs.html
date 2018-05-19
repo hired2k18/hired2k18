@@ -1,211 +1,220 @@
 <ion-header>
 
-  <ion-navbar>
-    <ion-title>jobs</ion-title>
+  <ion-navbar color="primary">
+    <ion-title>All Jobs</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
-    <ion-list>
-        <div align="center" *ngIf="loading">
-            <ion-spinner name="circles">
-              </ion-spinner>
-            <h5>Loading ...</h5>
-        </div>
-        <div *ngIf="!loading">
+  <ion-list>
+    <div align="center" *ngIf="loading">
+      <ion-spinner name="circles">
+      </ion-spinner>
+      <h5>Loading ...</h5>
+    </div>
+    <div *ngIf="loading">
+      <ion-item>
+        <ion-label>Jobs in</ion-label>
+        <ion-select name="location" interface="popover" (ionChange)="changeLocation($event)" [(ngModel)]="location" placeholder="Select">
+          <ion-option *ngFor="let location of locations">{{location.location}}</ion-option>
+        </ion-select>
+      </ion-item>
+      <br>
+      <div>
+        <ion-segment [(ngModel)]="pet">
+          <ion-segment-button value="all">
+            All
+          </ion-segment-button>
+          <ion-segment-button value="fulltime">
+            Full Time
+          </ion-segment-button>
+          <ion-segment-button value="parttime">
+            Part Time
+          </ion-segment-button>
+          <ion-segment-button value="internship">
+            Internship
+          </ion-segment-button>
+          <ion-segment-button value="workhome">
+            Work From Home
+          </ion-segment-button>
+        </ion-segment>
+      </div>
+      <div [ngSwitch]="pet">
+        <ion-list *ngSwitchCase="'all'">
+          <ion-card>
+            <ion-item>
+              <ion-avatar item-start class="splash-logo">
+              </ion-avatar>
+              <h2>Software Developer</h2>
+              <ion-item>
+                <ion-avatar item-left>
+                  <ion-icon name="pin"></ion-icon>
+                </ion-avatar>
+                <h3>Dhari</h3>
+                <p>0.45 miles</p>
+              </ion-item>
+            </ion-item>
+
+            <ion-card-content>
+              <p>We are looking for a Software Developer responsible for managing back-end services and the interchange of data
+                between the server and the users.</p>
+            </ion-card-content>
+            <ion-row>
+              <button ion-button (click)="showData()" full>Apply Now</button>
+            </ion-row>
+          </ion-card>
+
+          <ion-card>
+            <ion-item>
+              <ion-avatar item-start class="splash-logo1">
+              </ion-avatar>
+              <h2>PHP Developer</h2>
+              <ion-item>
+                <ion-avatar item-left>
+                  <ion-icon name="pin"></ion-icon>
+                </ion-avatar>
+                <h3>Slick Startups</h3>
+                <p>0.70 miles</p>
+              </ion-item>
+            </ion-item>
+
+            <ion-card-content>
+              <p>Skills Required : PHP Codeigniter CSS Ajax MVC Jquery.</p>
+            </ion-card-content>
+
+            <ion-row>
+              <button ion-button (click)="showData()" full>Apply Now</button>
+            </ion-row>
+          </ion-card>
+          <ion-card>
+            <ion-item>
+              <ion-avatar item-start class="splash-logo1">
+              </ion-avatar>
+              <h2>Bussiness Develop Associate</h2>
+              <ion-item>
+                <ion-avatar item-left>
+                  <ion-icon name="pin"></ion-icon>
+                </ion-avatar>
+                <h3>Slick Startups</h3>
+                <p>0.70 miles</p>
+              </ion-item>
+            </ion-item>
+
+            <ion-card-content>
+              <p>Skills Required : PHP Codeigniter CSS Ajax MVC Jquery.</p>
+            </ion-card-content>
+
+            <ion-row>
+              <button ion-button (click)="showData()" full>Apply Now</button>
+            </ion-row>
+          </ion-card>
+          <ion-card>
+            <ion-item>
+              <ion-avatar item-start class="splash-logo1">
+              </ion-avatar>
+              <h2>Android Developer</h2>
+              <ion-item>
+                <ion-avatar item-left>
+                  <ion-icon name="pin"></ion-icon>
+                </ion-avatar>
+                <h3>Inteliheads</h3>
+                <p>0.30 miles</p>
+              </ion-item>
+            </ion-item>
+
+            <ion-card-content>
+              <p>We are looking for an Android Developer responsible for the development and maintenance of applications aimed
+                at a vast number of diverse Android devices.</p>
+            </ion-card-content>
+
+            <ion-row>
+              <button ion-button (click)="showData()" full>Apply Now</button>
+            </ion-row>
+          </ion-card>
+        </ion-list>
+
+        <ion-list *ngSwitchCase="'fulltime'">
+          <ion-card>
+            <ion-item>
+              <ion-avatar item-start class="splash-logo">
+              </ion-avatar>
+              <h2>Little Boy</h2>
+            </ion-item>
+
+            <ion-card-content>
+              <h4>Address:</h4>
+              <p>flat no:306,Krishna colony,Krishna Lanka,Phagwara</p>
+            </ion-card-content>
+            <ion-row>
+              <button ion-button (click)="showData()" full>contact</button>
+            </ion-row>
+          </ion-card>
+
+          <ion-card>
+            <ion-item>
+              <ion-avatar item-start class="splash-logo1">
+              </ion-avatar>
+              <h2>Virat</h2>
+            </ion-item>
+
+            <ion-card-content>
+              <h4>Address</h4>
+              <p>sai colony,Ramavarapadu,Jalandhar</p>
+            </ion-card-content>
+
+            <ion-row>
+              <button ion-button (click)="showData()" full>contact</button>
+            </ion-row>
+          </ion-card>
+          <ion-card>
+
+            <ion-item>
+              <ion-avatar item-start class="splash-logo2">
+              </ion-avatar>
+              <h2>Little Boy</h2>
+            </ion-item>
+
+            <ion-card-content>
+              <h4>Address</h4>
+
+              <p>2-208,gandhi street,Nrk opp,Phagwara</p>
+            </ion-card-content>
+
+            <ion-row>
+              <button ion-button (click)="showData()" full>contact</button>
+            </ion-row>
+          </ion-card>
+        </ion-list>
+
+        <ion-list *ngSwitchCase="'parttime'">
           <ion-item>
-              <ion-label>Profession</ion-label>
-              <ion-select name="location" interface="popover" (ionChange)="changeLocation($event)" [(ngModel)]="location" placeholder="Select">
-                <ion-option *ngFor="let location of locations">{{location.location}}</ion-option>
-              </ion-select>
+            <ion-thumbnail item-start>
+              <img src="assets/img/thumbnail-duckling-1.jpg">
+            </ion-thumbnail>
+            <h2>Daffy</h2>
           </ion-item>
-            <div>
-                <ion-segment [(ngModel)]="pet">
-                  <ion-segment-button value="all">
-                    All
-                  </ion-segment-button>
-                  <ion-segment-button value="fulltime">
-                    fulltime
-                  </ion-segment-button>
-                  <ion-segment-button value="parttime">
-                    parttime
-                  </ion-segment-button>
-                </ion-segment>
-          </div>
-            <div [ngSwitch]="pet">
-              <ion-list *ngSwitchCase="'all'">
-                <ion-card >
-                 <ion-item>
-                    <ion-avatar item-start class="splash-logo">
-                    </ion-avatar>
-                    <h2>Software Developer</h2>
-                    <ion-item>
-                        <ion-avatar item-left>
-                            <ion-icon name="pin"></ion-icon>
-                        </ion-avatar>
-                        <h3>Dhari</h3>
-                        <p>0.45 miles</p>
-                    </ion-item>
-                  </ion-item>
-          
-                  <ion-card-content>
-                    <p>We are looking for a Software Developer responsible for managing back-end services and the interchange of data between the server and the users.</p>
-                  </ion-card-content>
-                  <ion-row>
-                    <button ion-button (click)="showData()" full>Apply Now</button>
-                  </ion-row>
-                </ion-card>
-          
-                <ion-card>
-                  <ion-item>
-                    <ion-avatar item-start class="splash-logo1">
-                    </ion-avatar>
-                    <h2>PHP Developer</h2>
-                    <ion-item>
-                      <ion-avatar item-left>
-                          <ion-icon name="pin"></ion-icon>
-                      </ion-avatar>
-                      <h3>Slick Startups</h3>
-                      <p>0.70 miles</p>
-                  </ion-item>
-                </ion-item>
-          
-                  <ion-card-content>
-                    <p>Skills Required : PHP Codeigniter CSS Ajax MVC Jquery.</p>
-                  </ion-card-content>
-          
-                  <ion-row>
-                    <button ion-button (click)="showData()" full>Apply Now</button>
-                  </ion-row>
-                </ion-card>
-                <ion-card>
-                  <ion-item>
-                    <ion-avatar item-start class="splash-logo1">
-                    </ion-avatar>
-                    <h2>Bussiness Develop Associate</h2>
-                    <ion-item>
-                      <ion-avatar item-left>
-                          <ion-icon name="pin"></ion-icon>
-                      </ion-avatar>
-                      <h3>Slick Startups</h3>
-                      <p>0.70 miles</p>
-                  </ion-item>
-                </ion-item>
-          
-                  <ion-card-content>
-                    <p>Skills Required : PHP Codeigniter CSS Ajax MVC Jquery.</p>
-                  </ion-card-content>
-          
-                  <ion-row>
-                    <button ion-button (click)="showData()" full>Apply Now</button>
-                  </ion-row>
-                </ion-card>
-                <ion-card>
-                  <ion-item>
-                    <ion-avatar item-start class="splash-logo1">
-                    </ion-avatar>
-                    <h2>Android Developer</h2>
-                    <ion-item>
-                      <ion-avatar item-left>
-                          <ion-icon name="pin"></ion-icon>
-                      </ion-avatar>
-                      <h3>Inteliheads</h3>
-                      <p>0.30 miles</p>
-                  </ion-item>
-                </ion-item>
-          
-                  <ion-card-content>
-                    <p>We are looking for an Android Developer responsible for the development and maintenance of applications aimed at a vast number of diverse Android devices.</p>
-                  </ion-card-content>
-          
-                  <ion-row>
-                    <button ion-button (click)="showData()" full>Apply Now</button>
-                  </ion-row>
-                </ion-card>
-              </ion-list>
-          
-              <ion-list *ngSwitchCase="'fulltime'">
-                <ion-card >
-                 <ion-item>
-                    <ion-avatar item-start class="splash-logo">
-                    </ion-avatar>
-                    <h2>Little Boy</h2>
-                  </ion-item>
-          
-                  <ion-card-content>
-                    <h4>Address:</h4>
-                    <p>flat no:306,Krishna colony,Krishna Lanka,Phagwara</p>
-                  </ion-card-content>
-                  <ion-row>
-                    <button ion-button (click)="showData()" full>contact</button>
-                  </ion-row>
-                </ion-card>
-          
-                <ion-card>
-                  <ion-item>
-                    <ion-avatar item-start class="splash-logo1">
-                    </ion-avatar>
-                    <h2>Virat</h2>
-                  </ion-item>
-          
-                  <ion-card-content>
-                    <h4>Address</h4>
-                    <p>sai colony,Ramavarapadu,Jalandhar</p>
-                  </ion-card-content>
-          
-                  <ion-row>
-                    <button ion-button (click)="showData()" full>contact</button>
-                  </ion-row>
-                </ion-card>
-                <ion-card>
-          
-                  <ion-item>
-                    <ion-avatar item-start class="splash-logo2">
-                    </ion-avatar>
-                    <h2>Little Boy</h2>
-                  </ion-item>
-          
-                  <ion-card-content>
-                    <h4>Address</h4>
-          
-                    <p>2-208,gandhi street,Nrk opp,Phagwara</p>
-                  </ion-card-content>
-          
-                  <ion-row>
-                  <button ion-button (click)="showData()" full>contact</button>
-                  </ion-row>
-                </ion-card>
-              </ion-list>
-          
-              <ion-list *ngSwitchCase="'parttime'">
-                <ion-item>
-                  <ion-thumbnail item-start>
-                    <img src="assets/img/thumbnail-duckling-1.jpg">
-                  </ion-thumbnail>
-                  <h2>Daffy</h2>
-                </ion-item>
-                <ion-item>
-                  <ion-thumbnail item-start>
-                    <img src="assets/img/thumbnail-duckling-2.jpg">
-                  </ion-thumbnail>
-                  <h2>Huey</h2>
-                </ion-item>
-                <ion-item>
-                  <ion-thumbnail item-start>
-                    <img src="assets/img/thumbnail-duckling-3.jpg">
-                  </ion-thumbnail>
-                  <h2>Dewey</h2>
-                </ion-item>
-                <ion-item>
-                  <ion-thumbnail item-start>
-                    <img src="assets/img/thumbnail-duckling-4.jpg">
-                  </ion-thumbnail>
-                  <h2>Louie</h2>
-                </ion-item>
-              </ion-list>
-            </div>
-        </div>
-    </ion-list>
+          <ion-item>
+            <ion-thumbnail item-start>
+              <img src="assets/img/thumbnail-duckling-2.jpg">
+            </ion-thumbnail>
+            <h2>Huey</h2>
+          </ion-item>
+          <ion-item>
+            <ion-thumbnail item-start>
+              <img src="assets/img/thumbnail-duckling-3.jpg">
+            </ion-thumbnail>
+            <h2>Dewey</h2>
+          </ion-item>
+          <ion-item>
+            <ion-thumbnail item-start>
+              <img src="assets/img/thumbnail-duckling-4.jpg">
+            </ion-thumbnail>
+            <h2>Louie</h2>
+          </ion-item>
+        </ion-list>
+      </div>
+    </div>
+  </ion-list>
 </ion-content>
