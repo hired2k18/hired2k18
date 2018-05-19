@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Login</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list no-lines>
+
+    <form (ngSubmit)="doLogin()">
+      <ion-item>
+        <ion-label floating>Email</ion-label>
+        <ion-input name="email" [(ngModel)]="user.email" type="email"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>Password</ion-label>
+        <ion-input name="password" [(ngModel)]="user.password" type="password"></ion-input>
+      </ion-item>
+      <br>
+      <button ion-button type="submit" round full>Login</button>
+    </form>
+    <br>
+    <h3>New User !</h3>
+    <button ion-button round full (click)="openRegister()">Register Here</button>
+  </ion-list>
+</ion-content>

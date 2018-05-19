@@ -1,0 +1,37 @@
+page-profile {
+  h4 {
+    font-variant: small-caps;
+  }
+
+  ionic-content{
+    margin-top: 220px;
+  }
+
+  .profile {
+    position: relative;
+    height: 200px;
+  }
+  .profile-image {
+    position: absolute;
+    align-content: center;
+    margin-top: 10px;
+  }
+  .profile-image img {
+    height: 80px;
+    width: 80px;
+    object-fit: cover;
+    border-radius: 40px;
+  }
+  .profile-image p {
+    text-align: center;
+    font-size: 0.5cm !important;
+    color: #4a4f4f;
+  }
+  .newColor {
+    background-color: #2fa29c !important; //  background-color: transparent!important;#39ac73#339966
+  }
+  ion-list button {
+    color: #fff !important;
+    background-color: transparent !important;
+  }
+}

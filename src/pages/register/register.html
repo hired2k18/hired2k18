@@ -1,0 +1,68 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Register</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+
+  <ion-list>
+    <form (ngSubmit)="doRegister()">
+      <ion-item>
+        <ion-label floating>Name</ion-label>
+        <ion-input name="name" [(ngModel)]="user.name" type="text" required></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>Phone Number</ion-label>
+        <ion-input name="phone" [(ngModel)]="user.phone" type="number"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>Email</ion-label>
+        <ion-input name="email" [(ngModel)]="user.email" type="email"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>Password</ion-label>
+        <ion-input name="password" [(ngModel)]="user.password" type="password"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>Confirm Password</ion-label>
+        <ion-input name="confirm_password" [(ngModel)]="user.confirm_password" type="password"></ion-input>
+      </ion-item>
+
+      <br>
+      <ion-item>
+        <ion-label>Profession</ion-label>
+        <ion-select name="profession" interface="popover" (ionChange)="changeExp($event)" [(ngModel)]="user.profession" placeholder="Select">
+          <ion-option *ngFor="let profession of professions">{{profession}}</ion-option>
+        </ion-select>
+      </ion-item>
+      <ion-item *ngIf="exp">
+        <ion-label floating>Experience</ion-label>
+        <ion-input name="experience" type="text" [(ngModel)]="user.experience" required></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label floating>Service Location</ion-label>
+        <ion-select name="profession" interface="popover" [(ngModel)]="user.location" placeholder="Select">
+          <ion-option *ngFor="let location of locations">{{location.location}}</ion-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>Address</ion-label>
+        <ion-input name="address" type="text" [(ngModel)]="user.address" required></ion-input>
+      </ion-item>
+
+      <br>
+      <button ion-button type="submit" round full>Register</button>
+    </form>
+  </ion-list>
+
+</ion-content>

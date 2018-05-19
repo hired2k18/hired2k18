@@ -1,0 +1,35 @@
+<!--
+  Generated template for the ServiceProfilePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="primary">
+    <ion-title>Service Provider</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+    <ion-card>
+        <ion-item>
+          <ion-avatar item-start class="splash-logo">
+          </ion-avatar>
+          <h2>{{user.name}}</h2>
+        </ion-item>
+    
+        <ion-card-content>
+          <h4>Phone :</h4>
+          <p>{{user.phone}}</p>
+          <h4>Email :</h4>
+          <p>{{user.email}}</p>
+          <h4>Address :</h4>
+          <p>{{user.address}}</p>
+          <h4>Experience :</h4>
+          <p>{{user.experience}}</p>
+        </ion-card-content>
+      </ion-card>
+</ion-content>

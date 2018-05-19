@@ -1,1 +1,20 @@
-<ion-nav [root]="rootPage"></ion-nav>
+<ion-menu [content]="content">
+  <ion-content class="newColor">
+    <div class="profile">
+      <div class="profile-image" align="center">
+        <img style="width: 80px;height:80px;" src="../assets/imgs/robo.jpg">
+        <strong><p style="font-size:40px;">Hired2k18</p></strong>
+      </div>
+    </div>
+    <ion-list no-lines>
+      <button class="newbutton" menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
+        <p>{{p.title}}</p>
+      </button>
+
+    </ion-list>
+
+  </ion-content>
+
+</ion-menu>
+
+<ion-nav #content [root]="rootPage"></ion-nav>

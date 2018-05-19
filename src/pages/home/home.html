@@ -1,17 +1,55 @@
 <ion-header>
-  <ion-navbar>
+  <ion-navbar color="primary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
     <ion-title>Home</ion-title>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  <h2>Welcome to Ionic!</h2>
-  <p>
-    This starter project comes with simple tabs-based layout for apps
-    that are going to primarily use a Tabbed UI.
-  </p>
-  <p>
-    Take a look at the <code>src/pages/</code> directory to add or change tabs,
-    update any existing page or create new pages.
-  </p>
+<ion-content class="card-background-page">
+  <div class="main-bg">
+    <ion-slides pager="true" autoplay="5000" loop="true" speed="1000">
+      <ion-slide>
+        <img src="../assets/imgs/backpi.jpg">
+      </ion-slide>
+      <ion-slide>
+        <img src="../assets/imgs/other.jpg">
+      </ion-slide>
+      <ion-slide>
+        <img src="../assets/imgs/jobbb.png">
+      </ion-slide>
+      <ion-slide>
+        <img src="../assets/imgs/portf.jpg">
+      </ion-slide>
+      <ion-slide>
+        <img src="../assets/imgs/party.jpg">
+      </ion-slide>
+    </ion-slides>
+  </div>
+
+  <ion-card (click)="openHomeServices()">
+    <img src="../assets/imgs/hom1.jpg" />
+    <div class="card-title">Home Services</div>
+  </ion-card>
+
+  <ion-card (click)="openJobs()">
+    <img src="../assets/imgs/jobeyy.jpg" />
+    <div class="card-title">Jobs</div>
+  </ion-card>
+
+  <ion-card (click)="openHire()">
+    <img src="../assets/imgs/hirey.jpg">
+    <div class="card-title">
+      <i>Hire Them</i>
+    </div>
+  </ion-card>
+
+  <ion-card (click)="openNearby()">
+    <img src="../assets/imgs/explore.png">
+    <div class="card-title">
+      <i>Nearby</i>
+    </div>
+  </ion-card>
+
 </ion-content>

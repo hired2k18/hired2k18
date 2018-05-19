@@ -1,0 +1,46 @@
+
+<ion-header>
+
+  <ion-navbar color="primary">
+    <ion-title>Service Details</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+  <div align="center" *ngIf="loading">
+      <ion-spinner name="circles">
+        </ion-spinner>
+      <h5>Loading ...</h5>
+  </div>
+  <div *ngIf="!loading">
+      <ion-card *ngFor="let user of users">
+          <ion-item>
+            <ion-avatar item-start class="splash-logo">
+            </ion-avatar>
+            <h2>{{user.value.name}}</h2>
+          </ion-item>
+      
+          <ion-card-content>
+            <h4>Address :</h4>
+            <p>{{user.value.address}}</p>
+            <h4>Experience :</h4>
+            <p>{{user.value.experience}}</p>
+          </ion-card-content>
+          <ion-grid>
+            <ion-row>
+              <ion-col>
+                <button ion-button round (click)="bookService(user.key)" full>
+                  Book
+                </button>
+              </ion-col>
+              <ion-col>
+                <button ion-button round (click)="showProfile(user.key)" full>
+                  Profile
+                </button>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </ion-card>
+  </div>
+</ion-content>
